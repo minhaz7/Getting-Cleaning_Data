@@ -31,7 +31,7 @@ Good luck!
 
 1. Download the data from :
     https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-2. Unzip the data into a directory into "data".
+2. Unzip the data into a directory called "data".
 4. Set the R working Directory to the directory which has the data folder (Parent directory of the data folder). Keep the run_analysis.R script in the 
    parent directory (not inside the data folder, but inside the parent directory). Then Open RStudio and run the command --> source("run_analysis.R") 
    in RStudio. Then run the command run_analysis()
