@@ -10,14 +10,14 @@ run_analysis <- function() {
 #Step 1: Merges the training and the test sets to create one data set.
 
 #Read Files
-trainData <- read.table("data/train/X_train.txt")
-trainLabel <- read.table("data/train/y_train.txt")
+trainData <- read.table("data/UCI HAR Dataset/train/X_train.txt")
+trainLabel <- read.table("data/UCI HAR Dataset/train/y_train.txt")
 table(trainLabel)
-trainSubject <- read.table("data/train/subject_train.txt")
-testData <- read.table("data/test/X_test.txt")
-testLabel <- read.table("data/test/y_test.txt") 
+trainSubject <- read.table("data/UCI HAR Dataset/train/subject_train.txt")
+testData <- read.table("data/UCI HAR Dataset/test/X_test.txt")
+testLabel <- read.table("data/UCI HAR Dataset/test/y_test.txt") 
 table(testLabel) 
-testSubject <- read.table("data/test/subject_test.txt")
+testSubject <- read.table("data/UCI HAR Dataset/test/subject_test.txt")
 #Merge the training and the test sets
 joinData <- rbind(trainData, testData)
 joinLabel <- rbind(trainLabel, testLabel)
@@ -28,7 +28,7 @@ print("Reading and Merging Complete")
 #Step 2: Extracts only the measurements on the mean and standard deviation for each measurement. 
 
 #Read the features.txt file.
-features <- read.table("data/features.txt")
+features <- read.table("data/UCI HAR Dataset/features.txt")
 #Subset only measurements for the mean and standard deviation.
 meanStdIndices <- grep("mean\\(\\)|std\\(\\)", features[, 2])
 length(meanStdIndices) 
@@ -46,7 +46,7 @@ print("Formatting Complete")
 
 #Step 3:Uses descriptive activity names to name the activities in the data set.
 #Read activity_labels.txt file to add descriptive names to the activities.
-activity <- read.table("data/activity_labels.txt")
+activity <- read.table("data/UCI HAR Dataset/activity_labels.txt")
 activity[, 2] <- tolower(gsub("_", "", activity[, 2]))
 substr(activity[2, 2], 8, 8) <- toupper(substr(activity[2, 2], 8, 8))
 substr(activity[3, 2], 8, 8) <- toupper(substr(activity[3, 2], 8, 8))
